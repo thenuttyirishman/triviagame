@@ -1,0 +1,46 @@
+body {
+   background-image: url("../images/img1.jpg");
+   background-size: cover;
+
+}
+h1  {
+    background-image: url("../images/img2.png");
+    text-align: center;
+    margin: 20px 300px 20px;
+    height: 100px;
+    color: black;
+    font-weight: bolder;
+    font-size: 50px;
+    font-family: cursive;
+    padding: 20px 0px 0px 0px; 
+    border: solid 4px gold;
+    text-shadow: -2px 0 gold, 0 2px gold, 2px 0 gold, 0 -2px gold;
+
+}
+
+h2 {
+    background-image: url("../images/img2.png");
+    text-align: center;
+    margin: 20px 300px 10px;
+    color: white;
+    font-weight: bolder;
+    font-family: cursive;
+    border: solid 4px gold;
+    line-height: 40px;
+}
+
+#quiz {
+    background-image: url("../images/img2.png");
+    text-align: center;
+    margin: 20px 300px 10px;
+    color: white;
+    font-weight: bolder;
+    font-family: cursive;
+    border: solid 4px gold;
+    line-height: 40px;
+    height: 300px;
+}
+
+button {
+    background-image:url("../images/img3.png");
+}
