@@ -8,12 +8,21 @@ var questions = [
     ["What species is Donkey Kong?", "Orangutan", "Gorilla", "Monkey", "B"],
     ["How many dots are on a Pac-Man board?", "225", "275", "240", "C"]
 ];
-// Timer
-var time = 30;
+
 
 function _(x) {
     return document.getElementById(x);
 }
+// Timer
+
+function countDown(secs, elem) {
+    var element = getElementById(elem);
+    element.innerHTML = "You have "+secs+" seconds remaining";
+    
+    secs--;
+    var timer = setTimeout('counDown('+secs+',"'+elem+'")',1000);
+}
+
 // Populate a question function
 function renderQuestion() {
     quiz = _("quiz");
@@ -26,6 +35,7 @@ function renderQuestion() {
         correct = 0;
         return false;
     }
+
     _("status").innerHTML = "Question "+(pos+1)+" of " + questions.length;
     question = questions[pos][0];
     chA = questions[pos][1];
@@ -35,7 +45,7 @@ function renderQuestion() {
     quiz.innerHTML += "<input type = 'radio' name = 'choices' value = 'A'> "+chA+"<br>";
     quiz.innerHTML += "<input type = 'radio' name = 'choices' value = 'B'> "+chB+"<br>";
     quiz.innerHTML += "<input type = 'radio' name = 'choices' value = 'C'> "+chC+"<br><br>";
-    quiz.innerHTML += "<button img src = ../images/img3.png onclick = 'checkAnswer()' >Submit</button>";
+    quiz.innerHTML += "<button = onclick = 'checkAnswer()' >Submit</button>";
 }
 // Check answer function
 function checkAnswer() {
@@ -56,6 +66,7 @@ function checkAnswer() {
 }
 // Calling the page to generate a question on load
 window.addEventListener("load", renderQuestion, false);
+
 
 
 
