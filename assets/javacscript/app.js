@@ -9,6 +9,7 @@ var questions = [
     ["How many dots are on a Pac-Man board?", "225", "275", "240", "C"]
 ];
 
+var isGuess = false;
 
 function _(x) {
     return document.getElementById(x);
@@ -20,7 +21,11 @@ function countDown(secs, elem) {
     element.innerHTML = "You have "+secs+" seconds remaining";
     
     secs--;
-    var timer = setTimeout('counDown('+secs+',"'+elem+'")',1000);
+    if(secs > 0 && !isGuess) {
+        setTimeout(countDown, 1000, secs, elem);
+    } else{
+        
+    }
 }
 
 // Populate a question function
@@ -28,7 +33,7 @@ function renderQuestion() {
     quiz = _("quiz");
     // Grades the quiz
     if (pos >= questions.length) {
-        quiz.innerHTML = "<h2>You got "+correct+" of "+questions.length+" Questions Correct!</h2>";
+        quiz.innerHTML = "<h2>You got " + correct + " of " + questions.length + " Questions Correct!</h2>";
         _("status").innerHTML = "Quiz Complete";
         // Resets score
         pos = 0;
@@ -46,15 +51,18 @@ function renderQuestion() {
     quiz.innerHTML += "<input type = 'radio' name = 'choices' value = 'B'> "+chB+"<br>";
     quiz.innerHTML += "<input type = 'radio' name = 'choices' value = 'C'> "+chC+"<br><br>";
     quiz.innerHTML += "<button = onclick = 'checkAnswer()' >Submit</button>";
+    isGuess = false;
+    countDown(30, 'timer');
 }
 // Check answer function
 function checkAnswer() {
+    isGuess = true;
     choices = document.getElementsByName("choices");
     // For loop
     for (var i = 0; i < choices.length; i++) {
     // If statment checking users answer
-    if (choices[i].checked) {
-        choice = choices[i].value;
+        if (choices[i].checked) {
+            choice = choices[i].value;
         }
     }
     // Checks to see if the answer is correct
@@ -67,6 +75,7 @@ function checkAnswer() {
 // Calling the page to generate a question on load
 window.addEventListener("load", renderQuestion, false);
 
+countDown(10, 'timer')
 
 
 
