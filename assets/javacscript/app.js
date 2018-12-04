@@ -1,6 +1,8 @@
 // Declare variables
 var pos = 0, quiz, status, question, choice, choices, chA, chB, chC, correct = 0;
 // Questions/answers array
+var timeLeft = true;
+var clock = document.getElementById("timer");
 var questions = [
     ["In what year did the first Super Mario Bros. game release?", "1980", "1985", "1983", "B"], 
     ["What planet planet is Kirby from?", "Planet Popstar", "Planet Earthfall", "Planet Frostak", "A"],
@@ -15,19 +17,20 @@ function _(x) {
     return document.getElementById(x);
 }
 // Timer
-
-function countDown(secs, elem) {
-    var element = getElementById(elem);
-    element.innerHTML = "You have "+secs+" seconds remaining";
-    
-    secs--;
-    if(secs > 0 && !isGuess) {
-        setTimeout(countDown, 1000, secs, elem);
-    } else{
-        
+function countDown() {
+    if(timeLeft) {
+        setTimeout(function(){
+            timeLeft = false;
+            console.log("Times Up");
+        }, 30000);
     }
+    while(timeLeft = true){
+        setTimeout(function(){
+        
+        }, 1000);
+    }
+        
 }
-
 // Populate a question function
 function renderQuestion() {
     quiz = _("quiz");
@@ -74,8 +77,6 @@ function checkAnswer() {
 }
 // Calling the page to generate a question on load
 window.addEventListener("load", renderQuestion, false);
-
-countDown(10, 'timer')
 
 
 
