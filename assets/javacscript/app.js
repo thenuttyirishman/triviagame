@@ -16,21 +16,7 @@ var isGuess = false;
 function _(x) {
     return document.getElementById(x);
 }
-// Timer
-function countDown() {
-    if(timeLeft) {
-        setTimeout(function(){
-            timeLeft = false;
-            console.log("Times Up");
-        }, 30000);
-    }
-    while(timeLeft = true){
-        setTimeout(function(){
-        
-        }, 1000);
-    }
-        
-}
+
 // Populate a question function
 function renderQuestion() {
     quiz = _("quiz");
@@ -55,7 +41,6 @@ function renderQuestion() {
     quiz.innerHTML += "<input type = 'radio' name = 'choices' value = 'C'> "+chC+"<br><br>";
     quiz.innerHTML += "<button = onclick = 'checkAnswer()' >Submit</button>";
     isGuess = false;
-    countDown(30, 'timer');
 }
 // Check answer function
 function checkAnswer() {
@@ -77,47 +62,3 @@ function checkAnswer() {
 }
 // Calling the page to generate a question on load
 window.addEventListener("load", renderQuestion, false);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function check(){
-//     var question1 = document.trivia.question1.value;
-//     var question2 = document.trivia.question2.value;
-//     var question3 = document.trivia.question3.value;
-//     var correct = 0;
-
-//     if(question1 == "1985") {
-//         correct++;
-//     } else {
-        
-//     }
-//     if(question2 == "PlanetPopstar") {
-//         correct++;
-//     }
-//     if(question3 == "Tails") {
-//         correct++;
-//     }
-// }
-
